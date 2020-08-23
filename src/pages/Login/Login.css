@@ -1,0 +1,9 @@
+.log-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10%;
+  padding: 10%;
+  background-color: #cb9b42;
+  border-radius: 20px;
+}

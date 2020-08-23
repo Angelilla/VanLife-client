@@ -12,15 +12,7 @@
     letter-spacing: 3px;
   }
   
-  .log-cont{
-    display: flex;
-    flex-direction: column;
-    margin: 10%;
-    padding: 10%;
-    background-color: #cb9b42;
-    
-    border-radius: 20px;
-  }
+  
   
 
   /*----------- MEDIA QUERYS------------*/

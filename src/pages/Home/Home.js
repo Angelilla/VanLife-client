@@ -1,16 +1,12 @@
 import React, { Component } from "react";
-import { withAuth } from "../lib/AuthProvider";
-//import { Link } from "react-router-dom";
+import { withAuth } from "../../lib/AuthProvider";
 import { Switch } from "react-router-dom";
 import './Home.css';
 
-//import Signup from "./Signup";
-//import Login from "./Login";
-import Private from "./Private";
+import Private from "../Private";
 
-//import AnonRoute from "../components/AnonRoute";
-import PrivateRoute from "../components/PrivateRoute";
-import AddPic from "./AddPic";
+import PrivateRoute from "../../components/PrivateRoute";
+import AddPic from "../AddPic";
 
 class Home extends Component {
   

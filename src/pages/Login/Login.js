@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { withAuth } from "../lib/AuthProvider";
+import { withAuth } from "../../lib/AuthProvider";
 import { Link } from "react-router-dom";
+
+import './Login.css';
+
+import Title from './components/Title/Title';
+import Label from './components/Label/Label';
+import Input from './components/Input/Input';
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -8,7 +14,6 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { email, password } = this.state;
-    //console.log('Login -> form submit', { email, password });
     this.props.login({ email, password });
   };
 
@@ -22,14 +27,14 @@ class Login extends Component {
 
     return (
       <div className="log-cont">
-        <h1>Login</h1>
+        <Title text="Login" />
 
         <form onSubmit={this.handleFormSubmit}>
           
-          <label>Email:</label>
+          <Label text="Email:" />
           <input type="text" name="email" value={email} onChange={this.handleChange}/>
 
-          <label>Password:</label>
+          <Label text="Contraseña:" />
           <input type="password" name="password" value={password} onChange={this.handleChange} />
 
           <input type="submit" value="Login" />
