@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 
 import './Login.css';
 
-import Title from './components/Title/Title';
-import Label from './components/Label/Label';
-import Input from './components/Input/Input';
-
 class Login extends Component {
-  state = { username: "", password: "" };
+  state = { email: "", password: "" };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -27,19 +23,32 @@ class Login extends Component {
 
     return (
       <div className="log-cont">
-        <Title text="Login" />
-
-        <form onSubmit={this.handleFormSubmit}>
-          
-          <Label text="Email:" />
-          <input type="text" name="email" value={email} onChange={this.handleChange}/>
-
-          <Label text="Contraseña:" />
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-          <input type="submit" value="Login" />
-        </form>
-        <Link to={"/signup"}> Signup</Link>
+        <div className="left-box">
+            <div className="bg-orange"></div>
+            <div className="log-img"></div>
+            <div className="img-text bold style1">VanLife</div>
+            <div className="img-text style2">Porque la vida es una aventura.</div>
+        </div>
+        <div className="right-box">
+          <div className="box">
+            <div className="log-title">¡Bienvenido!</div>
+            <div className="input-box">
+              <input className="input-log" type="text" name="email" value={email} onChange={this.handleChange} placeholder="Tu email"/>
+            </div>
+            <div className="input-box">
+              <input className="input-log" type="password" name="password" value={password} onChange={this.handleChange} placeholder="******" />
+            </div>
+            <button onClick={this.handleFormSubmit} className="log-btn" type="submit" value="Login">Entra</button>
+            <div className="border-box">
+              <div className="line"/>
+              <div className="text or">O crea una cuenta</div>
+            </div>
+            <div className="sgnup"></div>
+              <div className="sgnup-link">
+              <Link className="btns-cont-link" to={"/signup"}>Regístrate</Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

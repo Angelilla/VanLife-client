@@ -1,0 +1,27 @@
+.border-box {
+    width: 300px;
+    height: 47px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.line {
+    border-bottom: 2px solid #b1d1c5;
+    position: absolute;
+    top: 22px;
+    width: 100%;
+}
+
+.text {
+    font-size: 14px;
+    color: #cb9b42;  
+}
+
+.text.or {
+    position: absolute;
+    top: 14px;
+    left: 80px;
+    height: 16px;
+    background-color: #black;
+    text-align: center;
+}

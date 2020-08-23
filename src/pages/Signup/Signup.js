@@ -22,24 +22,35 @@ class Signup extends Component {
     const { username, email, password } = this.state;
     return (
       <div className="log-cont">
-        <h1>Sign Up</h1>
-
-        <form onSubmit={this.handleFormSubmit}>
-
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} />
-
-          <label>Email:</label>
-          <input type="text" name="email" value={email} onChange={this.handleChange} />
-
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-          <input type="submit" value="Signup" />
-        </form>
-        
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <div className="left-box">
+            <div className="bg-orange"></div>
+            <div className="log-img"></div>
+            <div className="img-text bold style1">VanLife</div>
+            <div className="img-text style2">Porque la vida es una aventura.</div>
+        </div>
+        <div className="right-box">
+          <div className="box">
+            <div className="log-title">Crea una cuenta</div>
+            <div className="input-box">
+              <input className="input-log" type="text" name="username" value={username} onChange={this.handleChange} placeholder="Nombre de usuario"/>
+            </div>
+            <div className="input-box">
+              <input className="input-log" type="text" name="email" value={email} onChange={this.handleChange} placeholder="Email"/>
+            </div>
+            <div className="input-box">
+              <input className="input-log" type="password" name="password" value={password} onChange={this.handleChange} placeholder="******" />
+            </div>
+            <button onClick={this.handleFormSubmit} className="log-btn" type="submit" value="Signup">Regístrate</button>
+            <div className="border-box">
+              <div className="line"/>
+              <div className="text or">¿Ya tienes una cuenta?</div>
+            </div>
+            <div className="sgnup"></div>
+              <div className="sgnup-link">
+              <Link className="btns-cont-link" to={"/login"}>Entra</Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
