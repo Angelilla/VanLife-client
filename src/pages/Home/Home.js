@@ -3,10 +3,14 @@ import { withAuth } from "../../lib/AuthProvider";
 import { Switch } from "react-router-dom";
 import './Home.css';
 
-import Private from "../Private";
+import ListTrips from "../trips/ListTrips/ListTrips"
+//import Private from "../Private";
+//import Signup from "../Signup/Signup";
+//import Login from "../Login/Login";
+//import AnonRoute from "../../components/AnonRoute";
 
-import PrivateRoute from "../../components/PrivateRoute";
-import AddPic from "../AddPic";
+//import PrivateRoute from "../../components/PrivateRoute";
+//import AddPic from "../AddPic";
 
 class Home extends Component {
   
@@ -14,11 +18,14 @@ class Home extends Component {
 
     const { user, logout, isLoggedin } = this.props;
     return (
-      <div className="home-cont"> 
-        <h1>Home Page</h1>
+      <div className="home-cont">
+         
+        <ListTrips /> 
+      {/*
         {
             isLoggedin ? 
             (<>
+              <PrivateRoute exact path='/private' component={Private} />
               <p className="navbar-user">username: {user.username}</p>	
               <AddPic />
               <button className="navbar-button" onClick={logout}>Logout</button>	
@@ -26,10 +33,12 @@ class Home extends Component {
           : 
             (<>
               <Switch>
-                <PrivateRoute exact path='/private' component={Private} />
+                <AnonRoute exact path='/signup' component={Signup} />
+                <AnonRoute exact path='/login' component={Login} />
               </Switch>
             </>)
         }
+      */}
       </div>
     )
   }

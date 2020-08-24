@@ -28,7 +28,7 @@ colors {
 }
 
 .log-img {
-    background-image: url("/build/images/van2.jpeg");
+    background-image: "../../../public/images/van2.jpeg";
     width: 100%;
     height: 100%;
     background-position: center;

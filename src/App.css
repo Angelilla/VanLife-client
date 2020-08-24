@@ -10,8 +10,9 @@ colors {
   color: #dbd7cb;
 }
 
-.App {
+.app-container {
   padding: 20px;
+  background-image: url(/build/images/van1.jpeg);
 }
 
 li {

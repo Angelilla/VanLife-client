@@ -11,6 +11,7 @@ class Login extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     this.props.login({ email, password });
+
   };
 
   handleChange = event => {
@@ -44,7 +45,7 @@ class Login extends Component {
               <div className="text or">O crea una cuenta</div>
             </div>
             <div className="sgnup"></div>
-              <div className="sgnup-link">
+            <div className="sgnup-link">
               <Link className="btns-cont-link" to={"/signup"}>Regístrate</Link>
             </div>
           </div>
