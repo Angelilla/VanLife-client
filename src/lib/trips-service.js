@@ -32,8 +32,8 @@ class Trips {
         return this.trips.post(`/${tripId}/add-favourite`, {tripId, userId}).then(({ data }) => data);
     };
 
-    deleteFavouriteTrip(tripId) {
-        return this.trips.post(`/${tripId}/delete-favourite`, {}).then(({ data }) => data);
+    deleteFavouriteTrip(tripId, userId) {
+        return this.trips.post(`/${tripId}/delete-favourite`, {tripId, userId}).then(({ data }) => data);
 
     };
 
