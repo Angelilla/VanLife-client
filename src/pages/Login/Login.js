@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
 import { Link } from "react-router-dom";
+import Van2 from '../../images/van2.jpeg';
 
 import './Login.css';
 
@@ -24,9 +25,9 @@ class Login extends Component {
 
     return (
       <div className="log-cont">
+            <img src={Van2} alt="van2.jpeg" />
         <div className="left-box">
             <div className="bg-orange"></div>
-            <div className="log-img"></div>
             <div className="img-text bold style1">VanLife</div>
             <div className="img-text style2">Porque la vida es una aventura.</div>
         </div>

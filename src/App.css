@@ -12,7 +12,7 @@ colors {
 
 .app-container {
   padding: 20px;
-  background-image: url(/build/images/van1.jpeg);
+  background-image: "./images/van1.jpeg";
 }
 
 li {

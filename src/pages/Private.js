@@ -10,6 +10,7 @@ import Login from "./Login/Login";
 import AnonRoute from "../components/AnonRoute";
 
 import AddPic from "./AddPic";
+import EditProfile from "./EditProfile/EditProfile";
 
 class Private extends Component {
 
@@ -21,12 +22,7 @@ class Private extends Component {
       //console.log(data)
       this.setState({
         createdtrips: usuario.createdtrips
-        
       })
-      //console.log(usuario.createdtrips[0])
-      //data.createdtrips.map(trip => trip._id
-      //console.log(usuario.createdtrips.map(trip => trip._id))
-
     })
       
   }
@@ -36,26 +32,21 @@ class Private extends Component {
     .then(this.props.history.push("/"))
   }
 
-  getTrips = () => {
-    usersService.profile()
-    .then(data => {
-      this.setState({
-        createdtrips : data.createdtrips
-      })
-      .then(console.log(data.data))
-      //console.log(data)
-      //data.createdtrips.map(trip => trip._id
-      //console.log(data.createdtrips.map(trip => trip._id)
-    })
-  }
+  /*
+  renderEditForm = () => {
+    if (!this.state.name){
+      usersService.profile()
+    } else {
+      return <EditProfile {...this.props} />
 
+    }
+  }
+  */
 
   render() {
  
     const { user, logout, isLoggedin } = this.props;
-
-    //const { createdtrips } = usersService.profile();
-    console.log(user)
+    //console.log(user)
 
     return (
       <div>
@@ -65,16 +56,15 @@ class Private extends Component {
             (<div className="profile-container">
               
               <h1>Welcome {user.username}</h1>
-              <img src={user.profilepic} alt="image"/>	
+              <img src={user.profilepic} alt="img"/>	
               <Link to={'/edit-profile'} id='home-btn'><p>Editar</p></Link>
+              {/*<div>{this.renderEditForm()}</div>*/}
               <AddPic />
               <h3>Mis aventuras</h3>
-              
-
               {this.state.createdtrips.map(trip => {
                 return (
                   <div key={trip._id}>
-                  <p>{trip.name}</p>
+                  <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
                   </div>
                 )
               })}

@@ -14,6 +14,7 @@ import EditProfile from "./pages/EditProfile/EditProfile";
 import Private from './pages/Private';
 import ListTrips from "../src/pages/trips/ListTrips/ListTrips"
 import TripDetail from "../src/pages/trips/TripDetail/TripDetail";
+import EditTrip from '../src/pages/trips/EditTrip/EditTrip'
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
                 <Route exact path='/trips' component={ListTrips} />
                 <Route exact path='/trips/:id' component={TripDetail} />
                 <Route exact path='/' component={Home} />
+                <Route exact path='/trips/:id/edit' component={EditTrip} />
           </Switch>
         </div>
       </AuthProvider> 

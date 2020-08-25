@@ -34,7 +34,9 @@ class EditProfile extends Component {
             })
             
         })*/
-        .then(() => this.props.history.push("/private"), 2000)
+        .then(() => {
+            this.props.history.push("/private")
+        })
         .catch (error => console.log(error)) 
     }
 

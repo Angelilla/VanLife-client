@@ -1,8 +1,9 @@
 .home-cont {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   width: 100%;  
+  height: 1000px;
   display: flex;
   flex-direction: column;
-  background-image: url('/van-life-client/public/images/van1.jpeg');
+  background-image: "";
   
 }

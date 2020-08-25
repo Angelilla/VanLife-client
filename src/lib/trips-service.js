@@ -15,7 +15,7 @@ class Trips {
     }
     
     tripDet(tripId) {
-        return this.trips.get(`/${tripId}`).then(({ data }) => console.log(data));
+        return this.trips.get(`/${tripId}`).then(({ data }) => data);
     }
 
     editTrip( { tripId, name, initdate } ) {
@@ -28,8 +28,8 @@ class Trips {
         return this.trips.post(`/${tripId}/delete`);
     }
     
-    addFavouriteTrip(tripId) {
-        return this.trips.post(`/${tripId}/add-favourite`, {}).then(({ data }) => data);
+    addFavouriteTrip(tripId, userId) {
+        return this.trips.post(`/${tripId}/add-favourite`, {tripId, userId}).then(({ data }) => data);
     };
 
     deleteFavouriteTrip(tripId) {

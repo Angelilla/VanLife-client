@@ -1,9 +1,8 @@
 import React, { Component , useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import usersService from "../../../lib/users-service";
-import tripsService from "../../../lib/trips-service";
+
 import axios from 'axios';
-import CreateTrip from "../CreateTrip/CreateTrip";
+
 
 const ProjectList = () => {
 
