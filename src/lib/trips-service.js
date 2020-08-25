@@ -14,7 +14,7 @@ class Trips {
         return this.trips.get('/').then(({ data }) => data);
     }
     
-    tripDetail(tripId) {
+    tripDet(tripId) {
         return this.trips.get(`/${tripId}`).then(({ data }) => console.log(data));
     }
 
@@ -25,7 +25,7 @@ class Trips {
     }
 
     deleteTrip(tripId) {
-        return this.trips.post(`/${tripId}/edit`, {}).then(({ data }) => data);
+        return this.trips.post(`/${tripId}/delete`);
     }
     
     addFavouriteTrip(tripId) {

@@ -1,16 +1,10 @@
 import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
-import { Switch } from "react-router-dom";
+import { Link  } from "react-router-dom";
 import './Home.css';
 
 import ListTrips from "../trips/ListTrips/ListTrips"
-//import Private from "../Private";
-//import Signup from "../Signup/Signup";
-//import Login from "../Login/Login";
-//import AnonRoute from "../../components/AnonRoute";
-
-//import PrivateRoute from "../../components/PrivateRoute";
-//import AddPic from "../AddPic";
+import TripDetail from "../trips/TripDetail/TripDetail";
 
 class Home extends Component {
   
@@ -20,7 +14,11 @@ class Home extends Component {
     return (
       <div className="home-cont">
          
-        <ListTrips /> 
+        
+        <Link to="/trips">Aventuras</Link>
+        
+        
+
       {/*
         {
             isLoggedin ? 

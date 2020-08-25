@@ -18,7 +18,7 @@ const ProjectList = () => {
     
     useEffect(() => {
        getAllTrips()
-      }, []);
+    }, []);
     
         return (
           <div>
@@ -38,4 +38,4 @@ const ProjectList = () => {
 
 }
 
-export default ProjectList
+export default ProjectList;

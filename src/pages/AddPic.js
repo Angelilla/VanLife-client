@@ -48,7 +48,7 @@ class AddPic extends Component {
         return (
           <div>
             <h2>New Pic</h2>
-            <form encType="multipart/form-data" onSubmit={e => this.handleSubmit(e)}>
+            <form onSubmit={e => this.handleSubmit(e)}>
 
                 <input 
                     type="file" 

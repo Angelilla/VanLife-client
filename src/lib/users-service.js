@@ -11,7 +11,9 @@ class Users {
   }
 
   profile() {
-    return this.users.get("/profile").then(({ data }) => data);
+    return this.users.get("/profile")
+    .then(({ data }) => data)
+    //.then((({ data }) => console.log(data.createdtrips.map(trip => trip._id))))
   }
 
   editProfile({ username, email, password, profilepic }) {
@@ -22,7 +24,7 @@ class Users {
 
   deleteProfile() {
     //console.log("hey")
-    return this.users.post('/delete-profile').then(({ data }) => data);
+    return this.users.post('/delete-profile');
   }
 
   newTrip( { name, traveler, initdate } ) {

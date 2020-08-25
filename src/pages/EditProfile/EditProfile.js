@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withAuth } from "../../lib/AuthProvider";
 import usersService from "../../lib/users-service";
 
-
 class EditProfile extends Component {
 
     constructor(props) {
@@ -26,7 +25,7 @@ class EditProfile extends Component {
         event.preventDefault();
         const { username, email, password, profilepic } = this.state;
         usersService.editProfile({ username, email, password, profilepic })
-        .then(user => {
+        /*.then(user => {
             //console.log(user)
             this.setState({ 
                 username: user.username, 
@@ -34,8 +33,8 @@ class EditProfile extends Component {
                 password: user.password
             })
             
-        })
-        .then(() => this.props.history.push("/private"))
+        })*/
+        .then(() => this.props.history.push("/private"), 2000)
         .catch (error => console.log(error)) 
     }
 
@@ -63,6 +62,8 @@ class EditProfile extends Component {
                             <input className="input-log" type="password" name="password" value={password} onChange={this.handleChange} placeholder="******" />
                         </div>
                         <button onClick={this.handleFormSubmit} className="log-btn" type="submit" value="EditProfile">Editar</button>
+                        <a className="btns-cont-link" href='/private' id='home-btn'><p>Perfil</p></a>
+
                     </div>
                 </div>
             </div>

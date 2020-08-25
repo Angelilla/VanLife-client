@@ -12,6 +12,8 @@ import AuthProvider from "./lib/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import Private from './pages/Private';
+import ListTrips from "../src/pages/trips/ListTrips/ListTrips"
+import TripDetail from "../src/pages/trips/TripDetail/TripDetail";
 
 class App extends Component {
   render() {
@@ -25,6 +27,8 @@ class App extends Component {
                 <PrivateRoute exact path='/private' component={Private} />
                 <PrivateRoute exact path='/edit-profile' component={EditProfile} />
                 <PrivateRoute exact path='/new-trip' component={CreateTrip} />
+                <Route exact path='/trips' component={ListTrips} />
+                <Route exact path='/trips/:id' component={TripDetail} />
                 <Route exact path='/' component={Home} />
           </Switch>
         </div>
