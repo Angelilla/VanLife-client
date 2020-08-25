@@ -3,25 +3,34 @@ import { withAuth } from "../lib/AuthProvider";
 import { Switch, Link } from "react-router-dom";
 import usersService from "../lib/users-service";
 //import tripsService from "../lib/trips-service";
-
-
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 import AnonRoute from "../components/AnonRoute";
 
+import Lapiz from '../images/lapiz.png'
+import Caravana from '../images/caravana.png'
+import Camara from '../images/camara.png'
+
+import './Private.css';
+
 import AddPic from "./AddPic";
-import EditProfile from "./EditProfile/EditProfile";
+
 
 class Private extends Component {
 
-  state = { username: "", profilepic: "", createdtrips: [] }
+  state = { username: "", 
+            profilepic: "", 
+            createdtrips: [], 
+            favoritetrips: [] }
 
   componentDidMount = () => {
     usersService.profile()
     .then(usuario => {
-      //console.log(data)
+      //console.log(usuario.createdtrips)
       this.setState({
-        createdtrips: usuario.createdtrips
+        createdtrips: usuario.createdtrips, 
+        favoritetrips: usuario.favoritetrips
+        
       })
     })
       
@@ -31,17 +40,37 @@ class Private extends Component {
     usersService.deleteProfile()
     .then(this.props.history.push("/"))
   }
-
   /*
-  renderEditForm = () => {
-    if (!this.state.name){
-      usersService.profile()
+  toggleForm = () => {
+    if(!this.state.isShowing){
+        this.setState({isShowing: true});
     } else {
-      return <EditProfile {...this.props} />
-
+      this.setState({isShowing: false});
     }
   }
-  */
+
+  showTrips = () => {
+    if(this.state.isShowing){
+      return (
+        {this.state.createdtrips.map(trip => {
+          return (
+            <div key={trip._id}>
+              <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
+            </div>
+          )
+        })
+          
+        }
+      )
+    }
+    /*this.state.createdtrips.map(trip => {
+      return (
+        <div key={trip._id}>
+          <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
+        </div>
+      )
+    })
+  }*/
 
   render() {
  
@@ -54,29 +83,55 @@ class Private extends Component {
         {
             isLoggedin ? 
             (<div className="profile-container">
-              
-              <h1>Welcome {user.username}</h1>
-              <img src={user.profilepic} alt="img"/>	
-              <Link to={'/edit-profile'} id='home-btn'><p>Editar</p></Link>
+              <div className="leftbox">
+                <div className="profile-img">
+                  <img src={user.profilepic} width="200" alt="img"/>	
+                </div>
+                <div className="username">
+                  <h3>{user.username}</h3>
+                </div>
+                <div className="profile-links">
+                    <div className="icon-div">
+                      <Link to={'/edit-profile'} id='home-btn'><img className="icono" src={Lapiz} alt=""/></Link>
+                    </div>
+                    <div className="icon-div">
+                      <Link to={'/new-trip'} id='home-btn'><img className="icono" src={Caravana} alt=""/></Link>
+                    </div>
+                    <div className="icon-div">
+                      <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
+                    </div>
+                </div>
+              </div>
+              <div className="rigthbox">
               {/*<div>{this.renderEditForm()}</div>*/}
-              <AddPic />
-              <h3>Mis aventuras</h3>
-              {this.state.createdtrips.map(trip => {
-                return (
-                  <div key={trip._id}>
-                  <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
-                  </div>
-                )
-              })}
-              
-              
-             
-                
+                <div className="adventures">
+                  {this.state.createdtrips && this.state.createdtrips.length >0 &&  <h3>Mis aventuras</h3>}
+                  {this.state.createdtrips.map(trip => {
+                    return (
+                      <div key={trip._id}>
+                        <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
+                      </div>
+                    )
+                  })}
 
-              <button className="log-btn" onClick={logout}>Logout</button>
-              <button className="log-btn" onClick={this.delProfile}>Eliminar</button>
-              
-              <Link to={'/new-trip'} id='home-btn'><p>Nueva aventura</p></Link>
+                  {/*{<button className="log-btn" onClick={this.showTrips()}><h3>Mis aventuras</h3></button>}*/}
+                </div>
+
+                <div className="adventures">
+                  {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <h3>Mis aventuras favoritas</h3>}
+                  {this.state.favoritetrips.map(trip => {
+                    return (
+                      <div key={trip._id}>
+                        <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
+                      </div>
+                    )
+                  })}
+                </div>
+                </div>
+              <div>
+                <button className="log-btn" onClick={logout}>Logout</button>
+                <button className="log-btn" onClick={this.delProfile}>Eliminar</button>
+              </div>
             </div>) 
           : 
             (<>

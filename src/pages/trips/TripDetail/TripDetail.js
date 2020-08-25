@@ -40,7 +40,7 @@ class TripDetail extends Component {
     addFav = ()=> {
       const tripId = this.state.theTrip._id;
       const userId = this.props.user._id;
-      console.log(this.state.theTrip)
+      console.log(this.state.theTrip.traveler)
       tripsService.addFavouriteTrip(tripId, userId)
 
           .then(() => this.props.history.push("/private"))
@@ -52,7 +52,7 @@ class TripDetail extends Component {
     delFav = ()=> {
       const tripId = this.state.theTrip._id;
       const userId = this.props.user._id;
-      console.log(this.state.theTrip)
+      //console.log(this.state.theTrip)
       tripsService.deleteFavouriteTrip(tripId, userId)
 
           .then(() => this.props.history.push("/private"))
@@ -61,13 +61,17 @@ class TripDetail extends Component {
 
   
     render() {
+      console.log(this.state.theTrip)
       return (
         <div>
           <h1>{this.state.theTrip.name}</h1>
-          <p>{this.state.traveler.username}</p>
+          {this.state.theTrip.traveler ? (<p>{this.state.theTrip.traveler.username}</p>)
+           : null 
+          }
           <Link to={"/trips"}>Aventuras</Link>
           <button className="log-btn" onClick={this.addFav}>Añadir a favoritos</button>
           <button className="log-btn" onClick={this.delFav}>Eliminar de favoritos</button>
+          {/*{this.state.theTrip.traveler === this.props.user ? (<Link to={`/trips/${this.state._id}/edit`}>Editar</Link>) : null }*/}
           <Link to={`/trips/${this.state._id}/edit`}>Editar</Link>
         </div>
       );

@@ -1,0 +1,35 @@
+colors {
+    color: #b1d1c5;
+    color: #cb9b42;
+    color: #f2f3ee;
+    color: #dbd7cb;
+  }
+
+.profile-img {
+    border-radius: 100px;
+    background-color: #cb9b42;
+    padding: 2px;
+    width: 205px;
+    height: 205px;
+    float: left;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-img img{
+    border-radius: 100px;
+}
+
+.icono {
+    width: 30px;
+}
+
+.icon-div {
+    background-color: #b1d1c5;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+}
