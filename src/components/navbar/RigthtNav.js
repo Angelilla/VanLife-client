@@ -35,6 +35,9 @@ const Ul = styled.ul`
 const RightNav = ({open}) => {
     return (
         <Ul className="navbar-link"  open={open}>
+            {
+                
+            }
             <li><a href='/login'  id='home-btn'><p>Login</p></a></li>
             <li><a href='/signup' id='home-btn'><p>Signup</p></a></li>
             <li><a href='/private' id='home-btn'><p>Perfil</p></a></li>

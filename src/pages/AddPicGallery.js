@@ -47,7 +47,7 @@ class AddPicGallery extends Component {
             console.log(newArr)
             newArr.push(response.secure_url)
             this.setState({ gallery: newArr })
-            //console.log(this.state)
+            console.log(this.state)
         })
         .catch(err => {
             console.log("Error while uploading the file: ", err);
@@ -58,10 +58,10 @@ class AddPicGallery extends Component {
         e.preventDefault();
         const tripId = this.props.match.params;
         const newPhoto = this.state;
-        console.log(tripId)
+        console.log(tripId.id)
         console.log(newPhoto)
         
-        service.saveInGallery(tripId, newPhoto)
+        service.saveInGallery(tripId.id, newPhoto)
         .then(res => {
             console.log('added: ', res);
         })
