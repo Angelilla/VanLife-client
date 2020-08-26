@@ -21,7 +21,10 @@ class Private extends Component {
   state = { username: "", 
             profilepic: "", 
             createdtrips: [], 
-            favoritetrips: [] }
+            favoritetrips: [],
+            isShowing: false,
+            isShow: false
+          }
 
   componentDidMount = () => {
     usersService.profile()
@@ -40,43 +43,38 @@ class Private extends Component {
     usersService.deleteProfile()
     .then(this.props.history.push("/"))
   }
-  /*
-  toggleForm = () => {
-    if(!this.state.isShowing){
-        this.setState({isShowing: true});
-    } else {
-      this.setState({isShowing: false});
-    }
-  }
 
   showTrips = () => {
-    if(this.state.isShowing){
-      return (
-        {this.state.createdtrips.map(trip => {
-          return (
-            <div key={trip._id}>
-              <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
-            </div>
-          )
-        })
-          
-        }
-      )
-    }
-    /*this.state.createdtrips.map(trip => {
-      return (
-        <div key={trip._id}>
-          <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
-        </div>
-      )
-    })
-  }*/
+    if(!this.state.isShowing){
+      this.setState({isShowing: true});
+      } else {
+        this.setState({isShowing: false});
+      }
+  }
+
+  showFavouriteTrips = () => {
+    if(!this.state.isShow){
+      this.setState({isShow: true});
+      } else {
+        this.setState({isShow: false});
+      }
+  }
 
   render() {
  
     const { user, logout, isLoggedin } = this.props;
     //console.log(user)
-
+    const CreatedTrips = () => {
+      return (
+        this.state.isShowing ? this.state.createdtrips.map(trip => <div key={trip._id}><Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link></div>) : null
+      )
+    }
+    const FavouriteTrips = () => {
+      return (
+        this.state.isShow ? this.state.favoritetrips.map(trip => <div key={trip._id}><Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link></div>) : null
+      )
+    }
+    
     return (
       <div>
         
@@ -109,27 +107,12 @@ class Private extends Component {
               <div className="rigthbox">
               {/*<div>{this.renderEditForm()}</div>*/}
                 <div className="adventures">
-                  {this.state.createdtrips && this.state.createdtrips.length >0 &&  <h3>Mis aventuras</h3>}
-                  {this.state.createdtrips.map(trip => {
-                    return (
-                      <div key={trip._id}>
-                        <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
-                      </div>
-                    )
-                  })}
-
-                  {/*{<button className="log-btn" onClick={this.showTrips()}><h3>Mis aventuras</h3></button>}*/}
+                  {this.state.createdtrips && this.state.createdtrips.length >0 &&  <button className="log-btn" onClick={(e) => this.showTrips()}>Mis aventuras</button>}
+                  <CreatedTrips />
                 </div>
-
                 <div className="adventures">
-                  {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <h3>Mis aventuras favoritas</h3>}
-                  {this.state.favoritetrips.map(trip => {
-                    return (
-                      <div key={trip._id}>
-                        <Link to={`/trips/${trip._id}`}><p>{trip.name}</p></Link>
-                      </div>
-                    )
-                  })}
+                  {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className="log-btn" onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
+                  <FavouriteTrips />
                 </div>
                 </div>
               
