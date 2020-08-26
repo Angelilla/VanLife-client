@@ -16,6 +16,7 @@ class TripDetail extends Component {
           name: "",
           traveler: "",
           followers: [],
+          gallery: [],
           theTrip: {}
         };
     }
@@ -32,13 +33,20 @@ class TripDetail extends Component {
         .get(`${process.env.REACT_APP_API_URI}/trips/${params.id}`)
         .then(response => {
           const theTrip = response.data;
-          //console.log(theTrip.traveler.username);
+          //console.log(theTrip.gallery);
           this.setState({theTrip: theTrip});
         })
         .catch(err => {
           console.log(err);
         });
     };
+
+    photoGallery = () => {
+      let newGallery = [...this.state.theTrip.gallery]
+        console.log(newGallery)  
+        this.setState({ gallery: newGallery })
+        console.log(this.state)
+    }
 
     addFav = ()=> {
       const tripId = this.state.theTrip._id;
@@ -86,6 +94,8 @@ class TripDetail extends Component {
       const CreatorOptions = () => {
        return  this.props.user ? this.DynamicText() : null
       }
+
+      const photoGallery =  this.state.theTrip.gallery;
      
       return (
         <div>
@@ -93,6 +103,7 @@ class TripDetail extends Component {
           {this.state.theTrip.traveler ? (<p>{this.state.theTrip.traveler.username}</p>)
            : null 
           }
+          {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div key={index}><img src={pic} width="200" alt=""/></div>)}
           <Link to={"/trips"}>Aventuras</Link>
           <CreatorOptions />
           <button className="log-btn" onClick={this.addFav}>Añadir a favoritos</button>

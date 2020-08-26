@@ -36,7 +36,7 @@ class Navbar extends Component {
     return (
       <Nav>
         <div className="logo">
-          <Link to={'/'} id='home-btn'><p>Home</p></Link>
+          <Link to={'/'} id='home-btn'><p>VanLife</p></Link>
         </div>
         <Burger />
       </Nav>
