@@ -10,10 +10,10 @@ import AnonRoute from "../components/AnonRoute";
 import Lapiz from '../images/lapiz.png'
 import Caravana from '../images/caravana.png'
 import Camara from '../images/camara.png'
+import Salir from '../images/cerrar-sesion.png'
+import Eliminar from '../images/eliminar.png'
 
 import './Private.css';
-
-import AddPic from "./AddPic";
 
 
 class Private extends Component {
@@ -85,7 +85,7 @@ class Private extends Component {
             (<div className="profile-container">
               <div className="leftbox">
                 <div className="profile-img">
-                  <img src={user.profilepic} width="200" alt="img"/>	
+                  <img src={user.profilepic} width="200" alt=""/>	
                 </div>
                 <div className="username">
                   <h3>{user.username}</h3>
@@ -100,6 +100,10 @@ class Private extends Component {
                     <div className="icon-div">
                       <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
                     </div>
+                </div>
+                <div>
+                  <button className="icon-btn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
+                  <button className="icon-btn" onClick={this.delProfile}><img className="icono" src={Eliminar} alt=""/></button>
                 </div>
               </div>
               <div className="rigthbox">
@@ -128,10 +132,7 @@ class Private extends Component {
                   })}
                 </div>
                 </div>
-              <div>
-                <button className="log-btn" onClick={logout}>Logout</button>
-                <button className="log-btn" onClick={this.delProfile}>Eliminar</button>
-              </div>
+              
             </div>) 
           : 
             (<>

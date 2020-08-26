@@ -23,5 +23,18 @@ export default {
     return service.patch('/update-photo', newPhoto)
       .then(res => res.data)
       .catch(errorHandler);
-  }
+  },
+
+  handleUp (theFile) {
+   
+    return service.post('/upload-gallery', theFile)
+      .then(res => res.data)
+      .catch(errorHandler);
+  },
+
+  saveInGallery (tripId, newPhoto) {
+    return service.post(`/${tripId}/update-gallery`, newPhoto)
+      .then(res => res.data)
+      .catch(errorHandler);
+  },
 }

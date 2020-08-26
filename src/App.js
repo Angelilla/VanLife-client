@@ -16,6 +16,7 @@ import ListTrips from "../src/pages/trips/ListTrips/ListTrips"
 import TripDetail from "../src/pages/trips/TripDetail/TripDetail";
 import EditTrip from '../src/pages/trips/EditTrip/EditTrip'
 import AddPic from '../src/pages/AddPic'
+import AddPicGallery from '../src/pages/AddPicGallery'
 
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/trips/:id/edit' component={EditTrip} />
                 <Route exact path='/addpic'component={AddPic}/>
-                
+                <Route exact path='/api/addpicgallery/:id'component={AddPicGallery}/>
           </Switch>
         </div>
       </AuthProvider> 

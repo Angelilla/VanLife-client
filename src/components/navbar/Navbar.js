@@ -15,7 +15,8 @@ const Nav = styled.nav`
   width: 100%;
   heigth: 55px;
   padding: 0 10px;
-  background: #b1d1c5; 
+  background: #b1d1c5;
+  position: relative; 
 
   .logo {
     padding: 15px 0;

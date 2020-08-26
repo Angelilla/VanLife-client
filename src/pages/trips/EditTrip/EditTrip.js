@@ -12,22 +12,22 @@ class EditTrip extends Component {
     }
 
     componentDidMount = () => {
-        //console.log(this.props.match.params.id)
+        console.log(this.props.match.params)
         const tripId = this.props.match.params.id
         tripsService.tripDet(tripId)
-            .then (res => {
-                
-                //console.log(res)
-                this.setState({
-                   name: res.name,
-                   initdate: res.initdate
+          .then (res => {
+            //console.log(res)
+            this.setState({
+              name: res.name,
+              initdate: res.initdate
           
-                })
             })
-            .catch(error => console.log(error));
+          })
+          .catch(error => console.log(error));
+
+        
 
     }
-
 
     handleFormSubmit = e => {
         const { name, initdate } = this.state;
@@ -62,7 +62,7 @@ class EditTrip extends Component {
                         <div className="input-box">
                         <input className="input-log" type="date" name="initdate" value={initdate} onChange={this.handleChange} />
                     </div>
-                    <button  className="log-btn" type="submit">Regístrate</button>
+                    <button  className="log-btn" type="submit">Guardar</button>
               
                 </div>
             </form>
