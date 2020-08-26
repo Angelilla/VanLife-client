@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-
 import styled from 'styled-components'
 
 const Ul = styled.ul`
@@ -27,17 +25,12 @@ const Ul = styled.ul`
         align-items: center;
         padding-top: 3.5rem;
         transition: transform 0.3s ease-in-out;
-    
     }
-
 `;
 
 const RightNav = ({open}) => {
     return (
         <Ul className="navbar-link"  open={open}>
-            {
-                
-            }
             <li><a href='/login'  id='home-btn'><p>Login</p></a></li>
             <li><a href='/signup' id='home-btn'><p>Signup</p></a></li>
             <li><a href='/private' id='home-btn'><p>Perfil</p></a></li>

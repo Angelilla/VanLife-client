@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import { withAuth } from "../../../lib/AuthProvider";
 import tripsService from '../../../lib/trips-service'
+import './TripDetail.css';
 
 import Camara from '../../../images/camara.png'
 import Eliminar from '../../../images/eliminar.png'
+import AddFav from '../../../images/favorito.png'
+import DelFav from '../../../images/quitarfavorito.png'
+import Editar from '../../../images/lapiz.png'
 
 import { Link } from "react-router-dom";
 
@@ -41,13 +45,6 @@ class TripDetail extends Component {
         });
     };
 
-    photoGallery = () => {
-      let newGallery = [...this.state.theTrip.gallery]
-        console.log(newGallery)  
-        this.setState({ gallery: newGallery })
-        console.log(this.state)
-    }
-
     addFav = ()=> {
       const tripId = this.state.theTrip._id;
       const userId = this.props.user._id;
@@ -79,8 +76,11 @@ class TripDetail extends Component {
             <div className="icon-div">
               <Link to={`/api/addpicgallery/${this.state.theTrip._id}`} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
             </div>
-            <Link to={`/trips/${this.state.theTrip._id}/edit`}>Editar</Link>
-            <button className="log-btn" onClick={this.delTrip}>Eliminar</button>
+            <div className="icon-div">
+              <Link to={`/trips/${this.state.theTrip._id}/edit`}><img className="icono" src={Editar} alt=""/></Link>
+            </div>
+            <button className="icon-btn" onClick={this.delTrip}><img className="icono" src={Eliminar} alt=""/></button>
+            
           </div>
         )
 
@@ -90,6 +90,8 @@ class TripDetail extends Component {
     }
     
     render() {
+
+      const { isLoggedin } = this.props;
       
       const CreatorOptions = () => {
        return  this.props.user ? this.DynamicText() : null
@@ -103,11 +105,20 @@ class TripDetail extends Component {
           {this.state.theTrip.traveler ? (<p>{this.state.theTrip.traveler.username}</p>)
            : null 
           }
-          {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div key={index}><img src={pic} width="200" alt=""/></div>)}
+          {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div key={index}><img src={pic} width="330" alt=""/></div>)}
           <Link to={"/trips"}>Aventuras</Link>
           <CreatorOptions />
-          <button className="log-btn" onClick={this.addFav}>Añadir a favoritos</button>
-          <button className="log-btn" onClick={this.delFav}>Eliminar de favoritos</button>
+          
+          {
+            isLoggedin ? (
+              <>
+                <button className="icon-btn" onClick={this.addFav}><img className="icono" src={AddFav} alt=""/></button>
+                <button className="icon-btn" onClick={this.delFav}><img className="icono" src={DelFav} alt=""/></button>
+              </>
+            ) : (
+              null
+            )
+          }
         </div>
       );
     }

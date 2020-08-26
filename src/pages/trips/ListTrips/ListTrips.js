@@ -1,5 +1,6 @@
 import React, { Component , useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import "./ListTrips.css"
 
 import axios from 'axios';
 
@@ -20,17 +21,21 @@ const ProjectList = () => {
     }, []);
     
         return (
-          <div>
-            <div>
-                {     
-                    allTrips ?   allTrips.map(trip => {
-                        return(
-                            <div key={trip._id}>
-                               <Link to={`/trips/${trip._id}`}>{trip.name}</Link>
+          <div className="wrapped-grid">
+            {     
+                allTrips ?   allTrips.map(trip => {
+                    return(
+                        <div className="container" key={trip._id}>
+                            <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+                            <div className="name">
+                                <p>{trip.name}</p>
                             </div>
-                   )}) : null 
-                }
-            </div>
+                            <div className="card-btn">
+                                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
+                            </div>
+                        </div>
+                    )}) : null 
+            }
           </div>
         );
       
