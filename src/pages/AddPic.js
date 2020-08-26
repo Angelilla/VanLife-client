@@ -36,8 +36,9 @@ class AddPic extends Component {
         e.preventDefault();
         
         service.saveNewPhoto(this.state)
-        .then(res => {
+        .then((res) => {
             console.log('added: ', res);
+            //this.props.history.push("/private")
         })
         .catch(err => {
             console.log("Error while adding the thing: ", err);

@@ -68,8 +68,11 @@ class TripDetail extends Component {
       if( this.props.user.createdtrips.includes(this.state.theTrip._id)){
         return (
           <div>
-             <Link to={`/trips/${this.state.theTrip._id}/edit`}>Editar</Link>
-             <button className="log-btn" onClick={this.delTrip}>Eliminar</button>
+            <div className="icon-div">
+              <Link to={`/api/addpicgallery/${this.state.theTrip._id}`} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
+            </div>
+            <Link to={`/trips/${this.state.theTrip._id}/edit`}>Editar</Link>
+            <button className="log-btn" onClick={this.delTrip}>Eliminar</button>
           </div>
         )
 
@@ -82,7 +85,6 @@ class TripDetail extends Component {
       
       const CreatorOptions = () => {
        return  this.props.user ? this.DynamicText() : null
-  
       }
      
       return (
@@ -91,14 +93,10 @@ class TripDetail extends Component {
           {this.state.theTrip.traveler ? (<p>{this.state.theTrip.traveler.username}</p>)
            : null 
           }
-          <div className="icon-div">
-            <Link to={`/api/addpicgallery/${this.state.theTrip._id}`} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
-          </div>
           <Link to={"/trips"}>Aventuras</Link>
           <CreatorOptions />
           <button className="log-btn" onClick={this.addFav}>Añadir a favoritos</button>
           <button className="log-btn" onClick={this.delFav}>Eliminar de favoritos</button>
-          {/*{this.state.theTrip.traveler === this.props.user ? (<Link to={`/trips/${this.state._id}/edit`}>Editar</Link>) : null }*/}
         </div>
       );
     }

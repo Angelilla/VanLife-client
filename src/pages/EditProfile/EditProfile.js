@@ -25,15 +25,6 @@ class EditProfile extends Component {
         event.preventDefault();
         const { username, email, password, profilepic } = this.state;
         usersService.editProfile({ username, email, password, profilepic })
-        /*.then(user => {
-            //console.log(user)
-            this.setState({ 
-                username: user.username, 
-                email: user.email, 
-                password: user.password
-            })
-            
-        })*/
         .then(() => {
             this.props.history.push("/private")
         })
@@ -64,13 +55,10 @@ class EditProfile extends Component {
                             <input className="input-log" type="password" name="password" value={password} onChange={this.handleChange} placeholder="******" />
                         </div>
                         <button onClick={this.handleFormSubmit} className="log-btn" type="submit" value="EditProfile">Editar</button>
-                        <a className="btns-cont-link" href='/private' id='home-btn'><p>Perfil</p></a>
-
                     </div>
                 </div>
             </div>
         )
-
     }
 
 }

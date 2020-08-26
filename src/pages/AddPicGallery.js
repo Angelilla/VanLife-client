@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 //import { withAuth } from "../lib/AuthProvider";	
 
 import service from '../lib/photo-service';
-import tripsService from '../lib/trips-service'
+import tripsService from '../lib/trips-service';
 
 
 class AddPicGallery extends Component {
@@ -15,8 +14,9 @@ class AddPicGallery extends Component {
     }
 
     componentDidMount() {
-        const tripId = this.props.match.params.id
-        console.log(this.props.params)
+        console.log(this.props.match.params)
+        const tripId = this.props.match.params
+        
         tripsService.tripDet(tripId)
             .then (res => {
                 console.log(res)
@@ -43,8 +43,11 @@ class AddPicGallery extends Component {
         service.handleUp(uploadData)
         .then(response => {
             console.log('response is: ', response);
-
-            this.setState({ gallery: response.secure_url });
+            let newArr = [...this.state.gallery]
+            console.log(newArr)
+            newArr.push(response.secure_url)
+            this.setState({ gallery: newArr })
+            //console.log(this.state)
         })
         .catch(err => {
             console.log("Error while uploading the file: ", err);
@@ -53,8 +56,12 @@ class AddPicGallery extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        const tripId = this.props.match.params;
+        const newPhoto = this.state;
+        console.log(tripId)
+        console.log(newPhoto)
         
-        service.saveInGallery(this.state)
+        service.saveInGallery(tripId, newPhoto)
         .then(res => {
             console.log('added: ', res);
         })
@@ -68,7 +75,7 @@ class AddPicGallery extends Component {
         return (
           <div>
             <h2>New Pic</h2>
-            <form onSubmit={e => this.handleSubmit(e)}>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
 
                 <input 
                     type="file" 
