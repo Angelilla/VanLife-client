@@ -7,5 +7,22 @@
   background-image: url("../../images/van1.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.home-nolog {
+  background-color: black;
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
+}
+
+.home-text {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 28px;
+  position: absolute;
+  color: #ffff;
+  margin: 20px;
 }

@@ -43,7 +43,7 @@ class Signup extends Component {
             <button onClick={this.handleFormSubmit} className="log-btn" type="submit" value="Signup">Regístrate</button>
             <div className="border-box">
               <div className="line"/>
-              <div className="text or">¿Ya tienes una cuenta?</div>
+              <div className="text or">¿Ya tienes cuenta?</div>
             </div>
             <div className="sgnup"></div>
               <div className="sgnup-link">
