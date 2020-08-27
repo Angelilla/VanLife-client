@@ -80,12 +80,15 @@ class Private extends Component {
           {this.state.isShowing ? this.state.createdtrips.map(trip => {
             return (
               <div key={trip._id} className="container">
-                <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+                <div className="banner">
+                  <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+                </div>
               <div className="name">
                 <p>{trip.name}</p>
+                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
               </div>
               <div className="card-btn">
-                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
+                
               </div>
               </div>)}) : null
           }

@@ -1,0 +1,133 @@
+colors {
+    color: #b1d1c5;
+    color: #cb9b42;
+    color: #f2f3ee;
+    color: #dbd7cb;
+}
+
+.trip-container {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    height: 2000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-propertys {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.name-propertys p {
+    font-size: 30px;
+}
+
+.icon {
+    width: 25px;
+}
+.iconbtn {
+    background-color: transparent !important;
+    width: 50px;
+    height: 50px;
+    border: none;
+}
+
+.traveler {
+    width: 320px;
+}
+
+.traveler-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color:#cb9b42;
+    display: flex;
+    justify-content: center;
+    float: left;
+}
+
+.traveler-pic-img {
+    width: 95%;
+    height: 95%;
+    border-radius: 50px;
+    margin-top: 2px;
+}
+
+.icono-megusta {
+    width: 13px;
+}
+
+.creator-options {
+    float: right;
+    margin-right: 50px;
+    margin-top: 15px;
+    
+}
+
+.creator-options-btns {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row;
+    
+}
+
+.iconbtn1 {
+    background-color: transparent !important;
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: flex;
+    
+}
+
+.iconbtn2 {
+    background-color: transparent !important;
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: flex;
+}
+.iconbtn3 {
+    background-color: transparent !important;
+    width: 50px;
+    height: 50px;
+    border: none;
+    display: flex;
+}
+
+.galeria {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.wrapped-photo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.container-photo {
+    overflow: hidden;
+    background-color: #f2f3ee;
+    position: relative;
+    width: 280px;
+    height: 350px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    justify-content: center;
+}
+
+.marco {
+    width: 210px;
+    height: 210px;
+    background-color: #cb9b42;
+}
+
+.foto {
+    width: 90%; 
+    height: 100%;
+}
+
+

@@ -4,9 +4,6 @@
   height: 1000px;
   display: flex;
   flex-direction: column;
-  background-image: url("../../images/van1.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .home-nolog {

@@ -9,6 +9,7 @@ import Eliminar from '../../../images/eliminar.png'
 import AddFav from '../../../images/favorito.png'
 import DelFav from '../../../images/quitarfavorito.png'
 import Editar from '../../../images/lapiz.png'
+import Corazon from '../../../images/corazon -negro.png'
 
 import { Link } from "react-router-dom";
 
@@ -37,7 +38,7 @@ class TripDetail extends Component {
         .get(`${process.env.REACT_APP_API_URI}/trips/${params.id}`)
         .then(response => {
           const theTrip = response.data;
-          //console.log(theTrip.gallery);
+          console.log(theTrip.traveler);
           this.setState({theTrip: theTrip});
         })
         .catch(err => {
@@ -72,14 +73,16 @@ class TripDetail extends Component {
     DynamicText = () => {
       if( this.props.user.createdtrips.includes(this.state.theTrip._id)){
         return (
-          <div>
-            <div className="icon-div">
-              <Link to={`/api/addpicgallery/${this.state.theTrip._id}`} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
+          <div className="creator-options-btns">
+            <div className="iconbtn1">
+              <Link to={`/api/addpicgallery/${this.state.theTrip._id}`}><img className="icon" src={Camara} alt=""/></Link>
             </div>
-            <div className="icon-div">
-              <Link to={`/trips/${this.state.theTrip._id}/edit`}><img className="icono" src={Editar} alt=""/></Link>
+            <div className="iconbtn2">
+              <Link to={`/trips/${this.state.theTrip._id}/edit`}><img className="icon" src={Editar} alt=""/></Link>
             </div>
-            <button className="icon-btn" onClick={this.delTrip}><img className="icono" src={Eliminar} alt=""/></button>
+            <div className="iconbtn3">
+              <button  className="iconbtn3" onClick={this.delTrip}><img className="icon" src={Eliminar} alt=""/></button>
+            </div>
             
           </div>
         )
@@ -100,25 +103,54 @@ class TripDetail extends Component {
       const photoGallery =  this.state.theTrip.gallery;
      
       return (
-        <div>
-          <h1>{this.state.theTrip.name}</h1>
-          {this.state.theTrip.traveler ? (<p>{this.state.theTrip.traveler.username}</p>)
-           : null 
-          }
-          {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div key={index}><img src={pic} width="330" alt=""/></div>)}
+        <div className="trip-container">
+          <div className="name-propertys">
+            <p>{this.state.theTrip.name}</p>
+            {
+              isLoggedin ? (
+                <>
+                  <button className="iconbtn" onClick={this.addFav}><img className="icon" src={AddFav} alt=""/></button>
+                  <button className="iconbtn" onClick={this.delFav}><img className="icon" src={DelFav} alt=""/></button>
+                </>
+              ) : (
+                null
+              )
+            }
+          </div>
+          <div className="traveler">
+            <div className="creator-options">
+              <div className="creator-options-data">
+              {this.state.theTrip.traveler ? (<p>Viajero: {this.state.theTrip.traveler.username}</p>)
+               : null 
+              }
+              {this.state.theTrip.traveler ? (<p>{this.state.theTrip.followers.length} <img className="icono-megusta" src={Corazon} alt=""/></p>)
+               : null 
+              }
+              </div>
+              
+                <CreatorOptions />
+             
+             
+            </div>
+            <div className="traveler-pic">
+              { this.state.theTrip.traveler ?  (<img src={this.state.theTrip.traveler.profilepic} className="traveler-pic-img" alt=""/>)
+              : null 
+              }
+            </div>
+            
+          </div>
+          <p className="galeria">Galería</p>
+          <div className="wrapped-photo">
+            <div className="container-photo">
+              {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="marco" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
+            </div>
+            
+          </div>
+         
           <Link to={"/trips"}>Aventuras</Link>
-          <CreatorOptions />
+         
           
-          {
-            isLoggedin ? (
-              <>
-                <button className="icon-btn" onClick={this.addFav}><img className="icono" src={AddFav} alt=""/></button>
-                <button className="icon-btn" onClick={this.delFav}><img className="icono" src={DelFav} alt=""/></button>
-              </>
-            ) : (
-              null
-            )
-          }
+          
         </div>
       );
     }
