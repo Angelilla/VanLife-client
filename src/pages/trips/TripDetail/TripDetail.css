@@ -73,6 +73,14 @@ colors {
     
 }
 
+.flecha {
+    margin-left: 900px
+}
+
+.flecha img {
+    margin-top: 10px
+}
+
 .iconbtn1 {
     background-color: transparent !important;
     width: 50px;
@@ -128,5 +136,14 @@ colors {
     width: 90%; 
     height: 90%;
 }
+
+@media screen and (max-width: 768px) {
+
+    .flecha {
+        margin-left: 90px
+    }
+}
+
+
 
 

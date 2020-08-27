@@ -10,6 +10,7 @@ import AddFav from '../../../images/favorito.png'
 import DelFav from '../../../images/quitarfavorito.png'
 import Editar from '../../../images/lapiz.png'
 import Corazon from '../../../images/corazon -negro.png'
+import FlechaIzq from '../../../images/flecha-izquierda.png'
 
 import { Link } from "react-router-dom";
 
@@ -111,10 +112,16 @@ class TripDetail extends Component {
                 <>
                   <button className="iconbtn" onClick={this.addFav}><img className="icon" src={AddFav} alt=""/></button>
                   <button className="iconbtn" onClick={this.delFav}><img className="icon" src={DelFav} alt=""/></button>
+                  <div className="flecha">
+                    <Link to={"/trips"}><img className="icon" src={FlechaIzq} alt=""/></Link>
+                  </div>
+                  
                 </>
               ) : (
-                null
-              )
+                  <div className="flecha">
+                      <Link to={"/trips"}><img className="icon" src={FlechaIzq} alt=""/></Link>
+                  </div> 
+                  )
             }
           </div>
           <div className="traveler">
@@ -137,19 +144,11 @@ class TripDetail extends Component {
               : null 
               }
             </div>
-            
           </div>
           <p className="galeria">Galería</p>
           <div className="wrapped-photo">
-            
-              {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="container-photo" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
-            </div>
-            
-          
-         
-          <Link to={"/trips"}>Aventuras</Link>
-         
-          
+            {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="container-photo" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
+          </div>
           
         </div>
       );
