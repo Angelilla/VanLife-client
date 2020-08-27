@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-//import { withAuth } from "../lib/AuthProvider";	
+import { withRouter } from "react-router-dom";	
 
 import service from '../lib/photo-service';
 import tripsService from '../lib/trips-service';
@@ -63,7 +63,8 @@ class AddPicGallery extends Component {
         
         service.saveInGallery(tripId.id, newPhoto)
         .then(res => {
-            console.log('added: ', res);
+            console.log('added: ', res)
+            this.props.history.push(`/trips/${tripId.id}`)
         })
         .catch(err => {
             console.log("Error while adding the thing: ", err);
@@ -90,4 +91,4 @@ class AddPicGallery extends Component {
 
 }
 
-export default AddPicGallery;
+export default withRouter(AddPicGallery);

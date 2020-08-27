@@ -5,6 +5,53 @@ colors {
     color: #dbd7cb;
   }
 
+.profile-container {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.profile-container2 {
+    overflow: hidden;
+    margin: 80px auto 30px;
+}
+
+.leftbox {
+    width: 300px;
+    float: left;
+    position: relative;
+    display: block;
+    height: 480px;
+}
+
+.rightbox {
+    width: 300px;
+    height: 480px;
+    float: right;
+    
+    
+}
+
+.pestañas2 {
+    width: 50%;
+    background-color: blue;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.creat-adventures {
+    background-color: black;
+    width: 50%;
+    height: 50%;
+    
+}
+
+.fav-adventures {
+    background-color: green;
+    width: 50%;
+    height: 50%;
+    
+}
+
 .profile-img {
     border-radius: 100px;
     background-color: #cb9b42;
@@ -44,6 +91,28 @@ colors {
     padding: 7px;
     padding-top: 9px;
     border: none;
+}
+
+.logbtn {
+    width: 50%;
+    height: 47px;
+    color: #f2f3ee;
+    background-color: #b1d1c5;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.logbtn-active {
+    width: 50%;
+    height: 47px;
+    color: #f2f3ee;
+    background-color: green;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 @media (max-width: 768px) {

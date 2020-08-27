@@ -141,11 +141,11 @@ class TripDetail extends Component {
           </div>
           <p className="galeria">Galería</p>
           <div className="wrapped-photo">
-            <div className="container-photo">
-              {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="marco" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
+            
+              {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="container-photo" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
             </div>
             
-          </div>
+          
          
           <Link to={"/trips"}>Aventuras</Link>
          

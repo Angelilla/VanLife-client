@@ -44,36 +44,37 @@ class Private extends Component {
     .then(this.props.history.push("/"))
   }
 
-  /*showTrips = () => {
-    if(!this.state.isShowing){
-      this.setState({isShowing: true});
-      } else if (this.state.isShowing && !this.state.isShow ){
-        this.setState({isShowing: true});
-      }else{
-        this.setState({isShowing: false});
-      }
-  }*/
-
   showTrips = () => {
-    if(!this.state.isShowing){
-      this.setState({isShowing: true});
+
+    this.setState(state => ( ({
+      isShowing: !state.isShowing, 
+      isShow:  false
+    })))
+    /*if(!this.state.isShowing){
+      this.setState({isShowing: true, isShow: false});
       } else {
         this.setState({isShowing: false});
-      }
+      }*/
   }
 
   showFavouriteTrips = () => {
-    if(!this.state.isShow){
-      this.setState({isShow: true});
+
+    this.setState(state => ( ({
+      isShow: !state.isShow, 
+      isShowing: false
+    })))
+    /*if(!this.state.isShow){
+      this.setState({isShow: true, isShowing: false});
       } else {
         this.setState({isShow: false});
-      }
+      }*/
   }
 
   render() {
  
     const { user, logout, isLoggedin } = this.props;
-    //console.log(user)
+    
+    
     const CreatedTrips = () => {
       return (
         <div className="wrapped-grid">
@@ -115,11 +116,11 @@ class Private extends Component {
     }
     
     return (
-      <div>
+      <div className="profile-container">
         
         {
             isLoggedin ? 
-            (<div className="profile-container">
+            (<div className="profile-container2">
               <div className="leftbox">
                 <div className="profile-img">
                   <img src={user.profilepic} width="200" alt=""/>	
@@ -144,15 +145,19 @@ class Private extends Component {
                 </div>
               </div>
               <div className="rigthbox">
-                <div className="adventures">
-                  {this.state.createdtrips && this.state.createdtrips.length >0 &&  <button className="log-btn" onClick={(e) => this.showTrips()}>Mis aventuras</button>}
-                  <CreatedTrips />
+                <div className="pestañas2">
+                  <div className="creat-adventures">
+                    {this.state.createdtrips && this.state.createdtrips.length >0 &&  <button className="logbtn" onClick={(e) => this.showTrips()}>Mis aventuras</button>}
+                  </div>
+                  <div className="fav-adventures">
+                    {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className="logbtn" onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
+                  </div>
                 </div>
-                <div className="adventures">
-                  {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className="log-btn" onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
+                <div className="show-trips">
+                  <CreatedTrips />
                   <FavouriteTrips />
                 </div>
-                </div>
+              </div>
               
             </div>) 
           : 
