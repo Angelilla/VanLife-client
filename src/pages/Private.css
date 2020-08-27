@@ -19,7 +19,7 @@ colors {
     float: left;
     position: relative;
     display: block;
-    height: 480px;
+    height: 300px;
 }
 
 .rightbox {
@@ -31,25 +31,21 @@ colors {
 }
 
 .pestañas2 {
-    width: 50%;
-    background-color: blue;
+    width: 350px;
+    
     display: flex;
     justify-content: space-around;
 
 }
 
 .creat-adventures {
-    background-color: black;
     width: 50%;
     height: 50%;
-    
 }
 
 .fav-adventures {
-    background-color: green;
     width: 50%;
     height: 50%;
-    
 }
 
 .profile-img {
@@ -81,6 +77,10 @@ colors {
     padding: 2px;
 }
 
+.show-trips {
+    margin-top:20px
+}
+
 .icon-btn {
     background-color: #b1d1c5;
     width: 50px;
@@ -94,23 +94,23 @@ colors {
 }
 
 .logbtn {
-    width: 50%;
+    width: 95%;
     height: 47px;
     color: #f2f3ee;
     background-color: #b1d1c5;
     text-align: center;
-    border: 0;
+    border: none;
     cursor: pointer;
     font-size: 20px;
 }
 
 .logbtn-active {
-    width: 50%;
+    width: 95%;
     height: 47px;
-    color: #f2f3ee;
-    background-color: green;
+    color: #b1d1c5;
+    background-color: #f2f3ee;
     text-align: center;
-    border: 0;
+    border: none;
     cursor: pointer;
     font-size: 20px;
 }

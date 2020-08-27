@@ -50,11 +50,7 @@ class Private extends Component {
       isShowing: !state.isShowing, 
       isShow:  false
     })))
-    /*if(!this.state.isShowing){
-      this.setState({isShowing: true, isShow: false});
-      } else {
-        this.setState({isShowing: false});
-      }*/
+    
   }
 
   showFavouriteTrips = () => {
@@ -63,18 +59,23 @@ class Private extends Component {
       isShow: !state.isShow, 
       isShowing: false
     })))
-    /*if(!this.state.isShow){
-      this.setState({isShow: true, isShowing: false});
-      } else {
-        this.setState({isShow: false});
-      }*/
+    
   }
 
   render() {
  
     const { user, logout, isLoggedin } = this.props;
+
+    let btnClassName = 'logbtn';
+    if (this.state.isShowing) {
+      btnClassName = 'logbtn-active';
+    }
     
-    
+    let btnClassNameFavs = 'logbtn';
+    if (this.state.isShow) {
+      btnClassNameFavs = 'logbtn-active';
+    } 
+
     const CreatedTrips = () => {
       return (
         <div className="wrapped-grid">
@@ -84,7 +85,7 @@ class Private extends Component {
                 <div className="banner">
                   <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
                 </div>
-              <div className="name">
+                <div className="name">
                 <p>{trip.name}</p>
                 <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
               </div>
@@ -102,13 +103,14 @@ class Private extends Component {
           {this.state.isShow ? this.state.favoritetrips.map(trip => {
             return (
               <div key={trip._id} className="container">
-                <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+                <div className="banner">
+                  <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+                </div>
               <div className="name">
                 <p>{trip.name}</p>
-              </div>
-              <div className="card-btn">
                 <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
               </div>
+              
               </div>)}) : null
           }
         </div>
@@ -147,10 +149,10 @@ class Private extends Component {
               <div className="rigthbox">
                 <div className="pestañas2">
                   <div className="creat-adventures">
-                    {this.state.createdtrips && this.state.createdtrips.length >0 &&  <button className="logbtn" onClick={(e) => this.showTrips()}>Mis aventuras</button>}
+                    {this.state.createdtrips && this.state.createdtrips.length >0 &&  <button className={btnClassName} onClick={(e) => this.showTrips()}>Mis aventuras</button>}
                   </div>
                   <div className="fav-adventures">
-                    {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className="logbtn" onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
+                    {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className={btnClassNameFavs} onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
                   </div>
                 </div>
                 <div className="show-trips">
