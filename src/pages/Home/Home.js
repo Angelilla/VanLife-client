@@ -18,15 +18,15 @@ class Home extends Component {
             </>) 
           : 
             (<>
-              <div className="log-cont">
-                <div className="left-box">
-                  <div className="bg-orange"></div>
-                  <div className="img-text bold style1">VanLife</div>
-                  <div className="img-text style2">Porque la vida es una aventura.</div>
+              <div className="home-log">
+                <div className="top-box">
+                  <div className="bg-blue"></div>
+                  <div className="bg-img"></div>
+                  <div className="imgtext bld style-1">VanLife</div>
+                  <div className="imgtext bld style-2">Porque la vida es una aventura</div>
                 </div>
-                <div className="right-box">
+                <div className="bottom-box">
                   <div className="box">
-                    <div className="log-title">Comienza tu aventura</div>
                     <div className="sgnup-link">
                       <Link className="btns-cont-link"to="/trips">Aventuras</Link>
                     </div>
