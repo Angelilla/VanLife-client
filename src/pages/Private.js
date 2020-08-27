@@ -125,25 +125,29 @@ class Private extends Component {
             (<div className="profile-container2">
               <div className="leftbox">
                 <div className="profile-img">
-                  <img src={user.profilepic} width="200" alt=""/>	
-                </div>
-                <div className="username">
-                  <h3>{user.username}</h3>
+                  <div className="profileimg">
+                    <img src={user.profilepic} width="200" alt=""/>	
+                  </div>
+                  <div className="camara">
+                    <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
+                  </div>
+                  <div className="caravana">
+                    <Link to={'/new-trip'} id='home-btn'><img className="icono" src={Caravana} alt=""/></Link>
+                  </div>
+                  <div className="salir">
+                    <button className="icon-btn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
+                  </div>
+                  <div className="exit">
+                    <button className="icon-btn" onClick={this.delProfile}><img className="icono" src={Eliminar} alt=""/></button>
+                  </div>
                 </div>
                 <div className="profile-links">
-                    <div className="icon-div">
-                      <Link to={'/edit-profile'} id='home-btn'><img className="icono" src={Lapiz} alt=""/></Link>
-                    </div>
-                    <div className="icon-div">
-                      <Link to={'/new-trip'} id='home-btn'><img className="icono" src={Caravana} alt=""/></Link>
-                    </div>
-                    <div className="icon-div">
-                      <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
-                    </div>
                 </div>
-                <div>
-                  <button className="icon-btn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
-                  <button className="icon-btn" onClick={this.delProfile}><img className="icono" src={Eliminar} alt=""/></button>
+                <div className="username">
+                  <p>{user.username}</p>
+                  <div >
+                    <Link to={'/edit-profile'} id='home-btn'><img className="icono" src={Lapiz} alt=""/></Link>
+                  </div>
                 </div>
               </div>
               <div className="rigthbox">

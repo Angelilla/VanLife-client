@@ -7,18 +7,21 @@ colors {
 
 .profile-container {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top:0
 }
 
 .profile-container2 {
     overflow: hidden;
     margin: 80px auto 30px;
+    margin-top: 20px;
 }
 
 .leftbox {
     width: 300px;
     float: left;
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 300px;
 }
 
@@ -49,18 +52,104 @@ colors {
 }
 
 .profile-img {
-    border-radius: 100px;
-    background-color: #cb9b42;
+    
+    
     padding: 2px;
-    width: 205px;
+    width: 250px;
     height: 205px;
     float: left;
     display: flex;
     justify-content: center;
 }
 
-.profile-img img{
+.profileimg {
+    background-color: #cb9b42;
     border-radius: 100px;
+    width: 205px;
+    height: 205px;
+    display: flex;
+    justify-content: center;
+}
+
+.profileimg img{
+    background-color: #cb9b42;
+    border-radius: 100px;
+    width: 95%;
+    height: 95%;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.camara {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #dbd7cb;
+    border-radius: 25px;
+    border: 2px solid #cb9b42;
+    display: flex;
+    justify-content: center;
+    right: 24%;
+    bottom: 35%;
+}
+
+.camara img{
+    margin-top: 8px;
+}
+
+.caravana {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #dbd7cb;
+    border-radius: 25px;
+    border: 2px solid #cb9b42;
+    display: flex;
+    justify-content: center;
+    right: 24%;
+    bottom: 80%;
+}
+
+.caravana img{
+    margin-top: 6px;
+}
+
+.salir {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #dbd7cb;
+    border-radius: 25px;
+    border: 2px solid #cb9b42;
+    display: flex;
+    justify-content: center;
+    right: 75%;
+    bottom: 35%;
+}
+
+.exit {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #dbd7cb;
+    border-radius: 25px;
+    border: 2px solid #cb9b42;
+    display: flex;
+    justify-content: center;
+    right: 75%;
+    bottom: 80%;
+}
+
+.username {
+    font-size: 30px;
+    margin-top: 15px;
+    color: #cb9b42;
+    display: flex;
+}
+
+.username div {
+    margin-left: 20px;
+    margin-top: 3px
 }
 
 .icono {
@@ -82,7 +171,6 @@ colors {
 }
 
 .icon-btn {
-    background-color: #b1d1c5;
     width: 50px;
     height: 50px;
     border-radius: 25px;
@@ -117,5 +205,27 @@ colors {
 
 @media (max-width: 768px) {
 
-   
+   .profile-img {
+       margin-left: 40px
+   }
+
+   .camara {
+    left: 75%;
+    bottom: 35%;
+   }
+
+   .caravana {
+    left: 75%;
+    bottom: 80%;
+   }
+
+   .salir {
+    right: 60%;
+    bottom: 35%;
+   }
+
+   .exit {
+    right: 60%;
+    bottom: 80%;
+   }
 }
