@@ -42,7 +42,7 @@ class EditProfile extends Component {
 
         return (
             <div className="log-cont">
-                <div className="right-box">
+                <div className="rightbox">
                     <div className="box">
                         <div className="log-title">Edita tu perfil</div>
                         <div className="input-box">

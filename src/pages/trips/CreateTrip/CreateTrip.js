@@ -25,7 +25,7 @@ class CreateTrip extends Component {
 
         return (
             
-            <form onSubmit={this.handleFormSubmit} className="right-box">
+            <form onSubmit={this.handleFormSubmit} className="rightbox">
                 <div className="box">
                     <div className="log-title">Crea una aventura</div>
                         <div className="input-box">
@@ -35,7 +35,7 @@ class CreateTrip extends Component {
                         <div className="input-box">
                         <input className="input-log" type="date" name="initdate" value={initdate} onChange={this.handleChange} placeholder="Fecha" />
                     </div>
-                    <button  className="log-btn" type="submit">Regístrate</button>
+                    <button  className="log-btn" type="submit">Crear</button>
               
                 </div>
             </form>

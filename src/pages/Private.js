@@ -153,9 +153,7 @@ class Private extends Component {
                   <div className="camara">
                     <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
                   </div>
-                  <div className="caravana">
-                    <Link to={'/new-trip'} id='home-btn'><img className="icono" src={Caravana} alt=""/></Link>
-                  </div>
+                 
                   <div className="salir">
                     <button className="iconbtn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
                   </div>

@@ -112,15 +112,11 @@ class TripDetail extends Component {
                 <>
                   <button className="iconbtn" onClick={this.addFav}><img className="icon" src={AddFav} alt=""/></button>
                   <button className="iconbtn" onClick={this.delFav}><img className="icon" src={DelFav} alt=""/></button>
-                  <div className="flecha">
-                    <Link to={"/trips"}><img className="icon" src={FlechaIzq} alt=""/></Link>
-                  </div>
+                 
                   
                 </>
               ) : (
-                  <div className="flecha">
-                      <Link to={"/trips"}><img className="icon" src={FlechaIzq} alt=""/></Link>
-                  </div> 
+                  null
                   )
             }
           </div>
@@ -149,6 +145,9 @@ class TripDetail extends Component {
           <div className="wrapped-photo">
             {this.state.theTrip.gallery && photoGallery.map((pic, index) => <div className="container-photo" key={index}><img className="foto" src={pic} width="330" alt=""/></div>)}
           </div>
+          <div className="flecha">
+            <Link to={"/trips"}><img className="icon" src={FlechaIzq} alt=""/></Link>
+          </div> 
           
         </div>
       );

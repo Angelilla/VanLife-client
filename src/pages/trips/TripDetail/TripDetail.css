@@ -11,7 +11,7 @@ colors {
     height: 2000px;
     display: flex;
     flex-direction: column;
-    pargin: 20px;
+   
 }
 
 .name-propertys {
@@ -138,13 +138,28 @@ colors {
     height: 90%;
 }
 
-@media screen and (max-width: 768px) {
+
+
+@media screen and (max-width: 700px) {
 
     .flecha {
         margin-left: 90px
     }
 }
+@media screen and (max-width: 990px) and (min-width: 710px) {
 
+    
+
+}
+@media screen and (min-width: 1000px) {
+
+    .trip-container{
+        width: 70%;  
+        margin: 20px 9%;
+    }
+
+    
+}
 
 
 
