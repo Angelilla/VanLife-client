@@ -51,19 +51,20 @@
   font-size: 20px;
 }
 
+
+
 @media screen and (max-width: 700px) {
 
   .top-box {
     display: none;
   }
 
-}
-
-@media screen and (max-width: 990px) and (min-width: 710px) {
-
- 
+  .bottom-box {
+    margin-top: 30%
+  }
 
 }
+
 
 @media screen and (min-width: 1000px) {
 

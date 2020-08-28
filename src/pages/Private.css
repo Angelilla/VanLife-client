@@ -3,7 +3,60 @@ colors {
     color: #cb9b42;
     color: #f2f3ee;
     color: #dbd7cb;
-  }
+}
+
+.wrappedgrid {
+    display: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 30px; 
+}
+
+.wrappedgrid-active {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+
+.thecontainer {
+    overflow: hidden;
+    background-color: #f2f3ee;
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    justify-content: center;
+    
+}
+
+.thebanner {
+    width: 280px;
+    height: 210px;
+    background-color: #cb9b42;
+}
+
+.thebanner-img {
+    width: 100%; 
+    height: 100%;
+    
+   
+}
+
+.thename {
+    font-size: 25px;
+    width: 100%;
+    height: 75px;
+    justify-content: center;
+    margin-left: 10px;
+    color: #cb9b42;
+    text-align: left;
+    padding-top: 10px;
+}
 
 .profile-container {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -17,25 +70,28 @@ colors {
 }
 
 .leftbox {
-    width: 300px;
-    float: left;
+    width: 100%;
     position: relative;
     display: flex;
-    flex-direction: column;
     height: 300px;
+    border-bottom: 2px solid #b1d1c5;
+}
+
+.opciones {
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #b1d1c5;
+    display: flex;
+    justify-content: space-around;
 }
 
 .rightbox {
-    width: 300px;
-    height: 480px;
-    float: right;
-    
-    
+    width: 100%;
+    height: 480px;    
 }
 
 .pestañas2 {
     width: 350px;
-    
     display: flex;
     justify-content: space-around;
 
@@ -51,22 +107,60 @@ colors {
     height: 50%;
 }
 
+.camara {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.camara img{
+    margin-top: 8px;
+}
+
+.caravana {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.caravana img{
+    margin-top: 6px;
+}
+
+.salir {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.borrar {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    
+}
+
 .profile-img {
-    
-    
     padding: 2px;
-    width: 250px;
-    height: 205px;
+    width: 25%;
+    height: 100%;
     float: left;
     display: flex;
     justify-content: center;
+    float: left;
 }
 
 .profileimg {
     background-color: #cb9b42;
     border-radius: 100px;
-    width: 205px;
-    height: 205px;
+    width: 175px;
+    height: 175px;
     display: flex;
     justify-content: center;
 }
@@ -80,76 +174,49 @@ colors {
     margin-left: 2px;
 }
 
-.camara {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    background-color: #dbd7cb;
-    border-radius: 25px;
-    border: 2px solid #cb9b42;
-    display: flex;
-    justify-content: center;
-    right: 24%;
-    bottom: 35%;
-}
-
-.camara img{
-    margin-top: 8px;
-}
-
-.caravana {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    background-color: #dbd7cb;
-    border-radius: 25px;
-    border: 2px solid #cb9b42;
-    display: flex;
-    justify-content: center;
-    right: 24%;
-    bottom: 80%;
-}
-
-.caravana img{
-    margin-top: 6px;
-}
-
-.salir {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    background-color: #dbd7cb;
-    border-radius: 25px;
-    border: 2px solid #cb9b42;
-    display: flex;
-    justify-content: center;
-    right: 75%;
-    bottom: 35%;
-}
-
-.exit {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    background-color: #dbd7cb;
-    border-radius: 25px;
-    border: 2px solid #cb9b42;
-    display: flex;
-    justify-content: center;
-    right: 75%;
-    bottom: 80%;
-}
-
 .username {
+    width: 50%;
+    height: 100%;
     font-size: 30px;
-    margin-top: 15px;
     color: #cb9b42;
     display: flex;
+    justify-content: space-between;
+    float: right;
+    
 }
 
-.username div {
-    margin-left: 20px;
-    margin-top: 3px
+.name{
+    width: 50%;
+    height: 50%;
+    
+}
+
+.subtitulo {
+    font-size: 15px;
+    
+}
+
+.editbtndiv {
+    width:  33%;
+    height: 30px;
+    background-color: f2f3ee;
+    border: 1px solid #cb9b42;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+    border-radius: 3px;
+    padding-bottom: 4px;
+}
+
+.final {
+    width: 33%;
+}
+
+.editbtn {
+    color: #cb9b42;
+    text-decoration: none;
+    font-size: 23px;
+    
 }
 
 .icono {
@@ -181,7 +248,7 @@ colors {
     border: none;
 }
 
-.logbtn {
+.logbtn-active {
     width: 95%;
     height: 47px;
     color: #f2f3ee;
@@ -192,7 +259,7 @@ colors {
     font-size: 20px;
 }
 
-.logbtn-active {
+.logbtn {
     width: 95%;
     height: 47px;
     color: #b1d1c5;
@@ -203,29 +270,238 @@ colors {
     font-size: 20px;
 }
 
-@media (max-width: 768px) {
-
-   .profile-img {
-       margin-left: 40px
-   }
-
-   .camara {
-    left: 75%;
-    bottom: 35%;
-   }
-
-   .caravana {
-    left: 75%;
-    bottom: 80%;
-   }
-
-   .salir {
-    right: 60%;
-    bottom: 35%;
-   }
-
-   .exit {
-    right: 60%;
-    bottom: 80%;
-   }
+.favadventures {
+    width: 25%;
+    height: 100;
+    background-color: #f2f3ee;
+    display: flex;
+    justify-content: center;
 }
+
+.linkbtn {
+    text-decoration: none;
+    height: 80%;
+    width: 95%;
+    color: #b1d1c5;
+    background-color: #f2f3ee;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 10px
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .thecontainer {
+        width: 100%;
+        height: 370px;  
+        margin-left: 0;
+        margin-bottom: 0;
+        border-top: 2px solid #cb9b42;
+    }
+
+    .thebanner {
+        width: 100%;
+        height: 75%;
+        background-color: #cb9b42;
+    }
+
+    .thename {
+        font-size: 30px;
+        width: 100%;
+        height: 75px;
+        color: #cb9b42;
+        text-align: left;
+        height: 30px;
+        padding-left: 10px;
+        padding-top: 15px
+    }
+
+    .themane p {
+        margin-left: 10px;
+    }
+
+    .favadventures {
+        width: 35%;
+        height: 100;
+    }
+
+    .linkbtn {
+        text-decoration: none;
+        height: 80%;
+        width: 95%;
+        color: #b1d1c5;
+        background-color: #f2f3ee;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: 10px
+
+    }
+
+    .creat-adventures {
+        width: 35%;
+        height: 50%;
+    }
+    
+    .fav-adventures {
+        width: 35%;
+        height: 50%;
+    }
+
+    .logbtn-active {
+        width: 95%;
+        height: 47px;
+        color: #f2f3ee;
+        background-color: #b1d1c5;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .pestañas2{
+        padding-left:3% ;
+    }
+
+    .leftbox {
+        width: 100%;
+        height: 200px;
+    }
+
+    .profile-img {
+        width: 25%;
+        height: 50%;
+        float: left;
+        margin-left: 20px;
+    }
+    
+    .profileimg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .profileimg img{
+        margin-top: 2px;
+        margin-left: 1px;
+    }
+
+    .username {
+        width: 60%;
+        height: 50%;
+        display: flex;
+        flex-flow: column;
+        
+    }
+
+    .editbtndiv {
+        margin-bottom: 50px;
+        width: 80%;
+        margin: 20px;
+    }
+
+    .name {
+        margin-left: 20px
+    }
+    
+
+}
+@media screen and (max-width: 990px) and (min-width: 710px) {
+
+    .pestañas2 {
+        width: 75%;
+        justify-content: center;
+        padding-left: 10%;
+    }
+
+    .creat-adventures {
+        width: 25%;
+        height: 50%;
+    }
+    
+    .fav-adventures {
+        width: 25%;
+        height: 50%;
+    }
+
+    .logbtn-active {
+        width: 95%;
+        height: 47px;
+        color: #f2f3ee;
+        background-color: #b1d1c5;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    
+    .logbtn {
+        width: 95%;
+        height: 47px;
+        color: #b1d1c5;
+        background-color: #f2f3ee;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .name {
+        margin-top: 50px
+    }
+
+}
+@media screen and (min-width: 1000px) {
+
+    .profile-container {
+        width: 70%;  
+        margin: 0 15%;
+    }
+
+    .pestañas2 {
+        width: 75%;
+        justify-content: center;
+        padding-left: 10%;
+    }
+
+    .creat-adventures {
+        width: 25%;
+        height: 50%;
+    }
+    
+    .fav-adventures {
+        width: 25%;
+        height: 50%;
+    }
+
+    .logbtn-active {
+        width: 95%;
+        height: 47px;
+        color: #f2f3ee;
+        background-color: #b1d1c5;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    
+    .logbtn {
+        width: 95%;
+        height: 47px;
+        color: #b1d1c5;
+        background-color: #f2f3ee;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .name {
+        margin-top: 50px
+    }
+
+}
+

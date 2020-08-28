@@ -76,42 +76,51 @@ class Private extends Component {
       btnClassNameFavs = 'logbtn-active';
     } 
 
+    let wrappedGrid = 'wrappedgrid';
+    if (this.state.isShowing) {
+      wrappedGrid = 'wrappedgrid-active';
+    }
+
+    let favWrappedGrid = 'wrappedgrid';
+    if (this.state.isShow) {
+      favWrappedGrid = 'wrappedgrid-active';
+    }
+    
+
     const CreatedTrips = () => {
       return (
-        <div className="wrapped-grid">
+        <div className={wrappedGrid}>
           {this.state.isShowing ? this.state.createdtrips.map(trip => {
             return (
-              <div key={trip._id} className="container">
-                <div className="banner">
-                  <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+              <Link to={`/trips/${trip._id}`}>
+              <div key={trip._id} className="thecontainer">
+                <div className="thebanner">
+                  <img className="thebanner-img"width="200" src={trip.gallery[0]} width="200" alt=""/>
                 </div>
-                <div className="name">
+                <div className="thename">
                 <p>{trip.name}</p>
-                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
               </div>
-              <div className="card-btn">
-                
               </div>
-              </div>)}) : null
+              </Link>)}) : null
           }
         </div>
       )
     }
     const FavouriteTrips = () => {
       return (
-        <div className="wrapped-grid">
+        <div className={favWrappedGrid}>
           {this.state.isShow ? this.state.favoritetrips.map(trip => {
             return (
-              <div key={trip._id} className="container">
-                <div className="banner">
-                  <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
+              <Link to={`/trips/${trip._id}`}>
+              <div key={trip._id} className="thecontainer">
+                <div className="thebanner">
+                  <img className="thebanner-img" src={trip.gallery[0]}  alt=""/>
                 </div>
-              <div className="name">
+              <div className="thename">
                 <p>{trip.name}</p>
-                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
               </div>
-              
-              </div>)}) : null
+              </div>
+              </Link>)}) : null
           }
         </div>
       )
@@ -126,8 +135,21 @@ class Private extends Component {
               <div className="leftbox">
                 <div className="profile-img">
                   <div className="profileimg">
-                    <img src={user.profilepic} width="200" alt=""/>	
+                    <img src={user.profilepic} alt=""/>	
                   </div>
+                </div>
+                <div className="username">
+                  <div className="name">
+                    <p>{user.username}</p>
+                    <p className="subtitulo">{user.createdtrips.length} aventuras creadas</p>
+                  </div>
+                  <div className="editbtndiv">
+                    <div><Link className="editbtn" to={'/edit-profile'} >Editar</Link></div>
+                  </div>
+                <div className="final"></div>
+                </div>
+              </div>
+                <div className="opciones">
                   <div className="camara">
                     <Link to={'/addpic'} id='home-btn'><img className="icono" src={Camara} alt=""/></Link>
                   </div>
@@ -135,21 +157,13 @@ class Private extends Component {
                     <Link to={'/new-trip'} id='home-btn'><img className="icono" src={Caravana} alt=""/></Link>
                   </div>
                   <div className="salir">
-                    <button className="icon-btn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
+                    <button className="iconbtn" onClick={logout}><img className="icono" src={Salir} alt=""/></button>
                   </div>
-                  <div className="exit">
-                    <button className="icon-btn" onClick={this.delProfile}><img className="icono" src={Eliminar} alt=""/></button>
+                  <div className="borrar">
+                    <button className="iconbtn" onClick={this.delProfile}><img className="icono" src={Eliminar} alt=""/></button>
+                </div>
                   </div>
-                </div>
-                <div className="profile-links">
-                </div>
-                <div className="username">
-                  <p>{user.username}</p>
-                  <div >
-                    <Link to={'/edit-profile'} id='home-btn'><img className="icono" src={Lapiz} alt=""/></Link>
-                  </div>
-                </div>
-              </div>
+
               <div className="rigthbox">
                 <div className="pestañas2">
                   <div className="creat-adventures">
@@ -157,6 +171,9 @@ class Private extends Component {
                   </div>
                   <div className="fav-adventures">
                     {this.state.favoritetrips && this.state.favoritetrips.length >0 &&  <button className={btnClassNameFavs} onClick={(e) => this.showFavouriteTrips()}>Favoritas</button>}
+                  </div>
+                  <div className="favadventures">
+                     <Link to={'/new-trip'} className="linkbtn" >Crear</Link>
                   </div>
                 </div>
                 <div className="show-trips">

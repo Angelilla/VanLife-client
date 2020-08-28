@@ -17,7 +17,8 @@ const ProjectList = () => {
     }
     
     useEffect(() => {
-       getAllTrips()
+      
+        getAllTrips()
     }, []);
     
         return (
@@ -27,17 +28,14 @@ const ProjectList = () => {
                 allTrips ?   allTrips.map(trip => {
                     return(
                         <div className="container" key={trip._id}>
+                            <Link to={`/trips/${trip._id}`}>
                             <div className="banner">
                                 <img className="banner-img" src={trip.gallery[0]} width="200" alt=""/>
                             </div>
-                            
-                            <div className="name">
+                            <div className="the-name">
                                 <p>{trip.name}</p>
-                                <Link className="card-btn-link" to={`/trips/${trip._id}`}>Ver</Link>
                             </div>
-                            <div className="card-btn">
-                                
-                            </div>
+                            </Link>
                         </div>
                     )}) : null 
             }
